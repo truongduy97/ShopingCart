@@ -1,5 +1,6 @@
 import React from "react";
 import { ShoppingCart } from "@material-ui/icons/";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -9,10 +10,18 @@ import {
   Button,
   Badge
 } from "@material-ui/core/";
+const useStyles = makeStyles(theme => ({
+  bg_color: {
+    backgroundColor: theme.palette.theme_color_one.main
+  },
+  color: "white"
+}));
 function Header(props) {
+  const classes = useStyles();
   return (
     <div>
-      <AppBar position="static" className="nav">
+      {/* <AppBar position="static" className={classes.bg_color classes.color}> them nhieu class*/}
+      <AppBar position="static" className={classes.bg_color}>
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit">
             Shopping Cart
