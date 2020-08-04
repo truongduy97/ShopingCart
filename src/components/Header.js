@@ -21,7 +21,6 @@ function Header(props) {
   const classes = useStyles();
   return (
     <div>
-      {/* <AppBar position="static" className={classes.bg_color classes.color}> them nhieu class*/}
       <AppBar position="static" className={classes.bg_color}>
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit">
