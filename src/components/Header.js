@@ -1,6 +1,7 @@
 import React from "react";
 import { ShoppingCart } from "@material-ui/icons/";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -27,9 +28,15 @@ function Header(props) {
             Shopping Cart
           </Typography>
           <Box ml="auto">
-            <Button>Home</Button>
-            <Button>Products</Button>
-            <Button>Cart</Button>
+            <Button>
+              <Link to="/home">Home</Link>
+            </Button>
+            <Button>
+              <Link to="/product">Products</Link>
+            </Button>
+            <Button>
+              <Link to="/detail">Cart</Link>
+            </Button>
             <IconButton edge="start" color="inherit" aria-label="menu">
               <Badge badgeContent={4} color="secondary">
                 <ShoppingCart />

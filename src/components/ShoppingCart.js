@@ -2,7 +2,19 @@ import React, { Component } from "react";
 import ProductList from "./ProductList";
 import Header from "./Header";
 import Footer from "./Footer";
+import HomePage from "./HomePage";
+import DetailPage from "./DetailPage";
+import { Route } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 
+// import { withStyles } from "@material-ui/styles";
+
+const classStyles = theme => ({
+  root: {
+    backgroundColor: "#ffee33"
+  }
+});
 class ShoppingCart extends Component {
   state = {
     products: [
@@ -96,11 +108,18 @@ class ShoppingCart extends Component {
     return (
       <div>
         <Header></Header>
-        <ProductList products={this.state.products}></ProductList>
+        <Route path="/home" component={HomePage}></Route>
+        <Route path="/product">
+          <ProductList products={this.state.products}></ProductList>
+        </Route>
+        <Route path="/detail" component={DetailPage}></Route>
+        {/* <ProductList products={this.state.products}></ProductList> */}
+        <Button className={this.props.classes.root}>ok</Button>
+
         <Footer></Footer>
       </div>
     );
   }
 }
 
-export default ShoppingCart;
+export default withStyles(classStyles)(ShoppingCart);
