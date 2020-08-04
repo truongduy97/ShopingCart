@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core/";
 const useStyles = makeStyles(theme => ({
   bg_color: {
-    backgroundColor: theme.palette.theme_color_one.main
+    backgroundColor: theme.palette.theme_color_two.main
   },
   color: "white"
 }));
@@ -38,7 +38,7 @@ function Header(props) {
               <Link to="/detail">Cart</Link>
             </Button>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={4} color="Secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>
