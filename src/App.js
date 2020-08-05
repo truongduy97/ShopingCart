@@ -1,9 +1,9 @@
 import React from "react";
-// import ShoppingCart from "./components/ShoppingCart";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Header, Footer } from "./components";
-import ProductsPage from "./conrainers/ProductsPage";
+import { ProductsPage, HomePage, DetailPage } from "./containers";
+import { Route } from "react-router-dom";
 const theme = createMuiTheme({
   palette: {
     theme_color_one: {
@@ -24,8 +24,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header></Header>
-        <ProductsPage></ProductsPage>
-        <h1>ok2</h1>
+        <Route path="/home" component={HomePage}></Route>
+        <Route path="/product">
+          <ProductsPage></ProductsPage>
+        </Route>
+        <Route path="/detail" component={DetailPage}></Route>
         <Footer></Footer>
       </div>
     </ThemeProvider>

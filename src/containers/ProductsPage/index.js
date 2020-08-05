@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { Container, Grid, Box } from "@material-ui/core";
+import { Container, Grid, Box, Button } from "@material-ui/core";
 import { Product } from "../../components";
-
+import Pagination from "@material-ui/lab/Pagination";
+const classStyles = theme => ({
+  root: {
+    backgroundColor: "#ffee33"
+  },
+  mr_auto: {
+    padding: "50px 300px"
+  }
+});
 class ProductsPage extends Component {
   state = {
     products: [
@@ -105,21 +113,30 @@ class ProductsPage extends Component {
                 {this.state.products.map((product, index) => {
                   return (
                     // <Grid item md={3} xs={6} key={index}>
-                      <Product
-                        name={product.name}
-                        price={product.price}
-                        img={product.img}
-                      ></Product>
+                    <Product
+                      name={product.name}
+                      price={product.price}
+                      img={product.img}
+                    ></Product>
                     // </Grid>
                   );
                 })}
               </Grid>
+
+              <Pagination
+                className={this.props.classes.mr_auto}
+                count={10}
+                color="secondary"
+              />
             </Grid>
           </Grid>
         </Box>
+        <Button className={this.props.classes.root}>
+          test style class components withStyle
+        </Button>
       </Container>
     );
   }
 }
 
-export default ProductsPage;
+export default withStyles(classStyles)(ProductsPage);
