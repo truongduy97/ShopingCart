@@ -28,7 +28,7 @@ function Header(props) {
           </Typography>
           <Box ml="auto">
             <Button>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </Button>
             <Button>
               <Link to="/product">Products</Link>

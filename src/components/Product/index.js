@@ -9,6 +9,7 @@ import {
   CardActions,
   Box
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles(theme => ({
   margin_auto: {
     margin: "auto"
@@ -26,7 +27,8 @@ function Product(props) {
         </CardActionArea>
         <Box>
           <Typography align="center" variant="h6">
-            {props.name}
+            {/* {props.name} */}
+            <Link to={"/product/" + props.id}>{props.name}</Link>
           </Typography>
           <Typography align="center" variant="h6">
             {props.price}$

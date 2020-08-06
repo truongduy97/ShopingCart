@@ -3,7 +3,8 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Header, Footer } from "./components";
 import { ProductsPage, HomePage, DetailPage } from "./containers";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+// import { Switch } from "@material-ui/core";
 const theme = createMuiTheme({
   palette: {
     theme_color_one: {
@@ -24,11 +25,18 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Header></Header>
-        <Route path="/home" component={HomePage}></Route>
-        <Route path="/product">
-          <ProductsPage></ProductsPage>
-        </Route>
-        <Route path="/detail" component={DetailPage}></Route>
+        <Switch>
+          <Route exact path="/" component={HomePage}></Route>
+          <Route path="/product/:id" component={DetailPage}>
+            {/* <DetailPage></DetailPage> */}
+          </Route>
+          <Route path="/product">
+            <ProductsPage></ProductsPage>
+          </Route>
+
+          <Route path="/detail" component={DetailPage}></Route>
+          <Route>404 page</Route>
+        </Switch>
         <Footer></Footer>
       </div>
     </ThemeProvider>

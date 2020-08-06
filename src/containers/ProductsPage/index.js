@@ -117,6 +117,7 @@ class ProductsPage extends Component {
                       name={product.name}
                       price={product.price}
                       img={product.img}
+                      id={product.id}
                     ></Product>
                     // </Grid>
                   );
