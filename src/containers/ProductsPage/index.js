@@ -112,14 +112,14 @@ class ProductsPage extends Component {
               <Grid container spacing={2}>
                 {this.state.products.map((product, index) => {
                   return (
-                    // <Grid item md={3} xs={6} key={index}>
-                    <Product
-                      name={product.name}
-                      price={product.price}
-                      img={product.img}
-                      id={product.id}
-                    ></Product>
-                    // </Grid>
+                    <Grid item md={3} xs={6} key={index}>
+                      <Product
+                        name={product.name}
+                        price={product.price}
+                        img={product.img}
+                        id={product.id}
+                      ></Product>
+                    </Grid>
                   );
                 })}
               </Grid>
