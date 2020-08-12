@@ -54,10 +54,22 @@ class DetailPage extends Component {
       ...form
     });
   };
-
+  componentDidMount() {
+    axios
+      .get(`http://localhost:3004/products/${this.props.match.params.id}`)
+      .then(res => {
+        this.setState({
+          product: res.data
+        });
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
   render() {
     const { classes } = this.props;
-
+    const { product } = this.state;
     return (
       <Container className={classes.paddingtb}>
         <Grid container>

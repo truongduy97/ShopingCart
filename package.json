@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "json-server --watch server.json --port 3004",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -35,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.16.1"
   }
 }
