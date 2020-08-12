@@ -10,9 +10,10 @@ import {
   RadioGroup,
   FormControlLabel,
   FormControl,
-  FormLabel
+  FormLabel,
+  Input
 } from "@material-ui/core";
-
+import axios from "axios";
 import { withStyles } from "@material-ui/core";
 import { ImageContainer } from "../../components";
 
@@ -38,13 +39,16 @@ const style = theme => ({
   },
   martb: {
     margin: "20px 0"
+  },
+  heightBtn: {
+    fontSize: "1.4rem"
   }
 });
 
 class DetailPage extends Component {
   state = {
     size: "s",
-    quantity: 5
+    quantity: 0
   };
   handleChange = event => {
     const form = { ...this.state };
@@ -67,6 +71,23 @@ class DetailPage extends Component {
         console.log(err);
       });
   }
+  handleClickGiam = () => {
+    if (this.state.quantity > 0) {
+      this.setState({
+        quantity: this.state.quantity - 1
+      });
+    }
+  };
+  handleClickTang = () => {
+    this.setState({
+      quantity: this.state.quantity + 1
+    });
+    // if (this.state.quantity >= 0) {
+    //   this.setState({
+    //     quantity: this.state.quantity + 1
+    //   });
+    // }
+  };
   render() {
     const { classes } = this.props;
     const { product } = this.state;
@@ -102,18 +123,28 @@ class DetailPage extends Component {
               </RadioGroup>
             </FormControl>
             <Box>
-              <Button variant="outlined" size="large">
+              <Button
+                className={classes.heightBtn}
+                onClick={this.handleClickGiam}
+                variant="outlined"
+                size="large"
+              >
                 -
               </Button>
               <TextField
                 id="outlined-basic"
-                label="Outlined"
+                label="Quantity"
                 variant="outlined"
                 value={this.state.quantity}
                 onChange={this.handleChange}
                 name="quantity"
               />
-              <Button variant="outlined" size="large">
+              <Button
+                className={classes.heightBtn}
+                onClick={this.handleClickTang}
+                variant="outlined"
+                size="large"
+              >
                 +
               </Button>
             </Box>

@@ -2,6 +2,7 @@ import React from "react";
 import { ShoppingCart } from "@material-ui/icons/";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, NavLink } from "react-router-dom";
+
 import {
   AppBar,
   Toolbar,
