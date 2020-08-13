@@ -80,7 +80,7 @@ class DetailPage extends Component {
   };
   handleClickTang = () => {
     this.setState({
-      quantity: this.state.quantity + 1
+      quantity: parseInt(this.state.quantity) + 1
     });
     // if (this.state.quantity >= 0) {
     //   this.setState({
@@ -88,6 +88,7 @@ class DetailPage extends Component {
     //   });
     // }
   };
+
   render() {
     const { classes } = this.props;
     const { product } = this.state;

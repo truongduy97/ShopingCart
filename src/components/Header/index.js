@@ -41,7 +41,9 @@ function Header(props) {
             </Button>
             <IconButton edge="start" color="inherit" aria-label="menu">
               <Badge badgeContent={4} color="Secondary">
-                <ShoppingCart />
+                <NavLink to="/cart">
+                  <ShoppingCart />
+                </NavLink>
               </Badge>
             </IconButton>
           </Box>
