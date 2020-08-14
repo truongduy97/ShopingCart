@@ -25,7 +25,7 @@
       "id": 4,
       "name": "San pham 4",
       "price": 9,
-      "size": ["s", "m", "xl"],
+      "size": ["s", "xl"],
       "img": "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/115844444-311743083208439-6108934669943805257-n.jpg?v=1595330674000"
     },
     {
