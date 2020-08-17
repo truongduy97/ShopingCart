@@ -84,5 +84,15 @@
       "size": ["s", "m", "xl"],
       "img": "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/116100253-3074838829218714-9073977565740696242-n.jpg?v=1595853770000"
     }
+  ],
+  "footer": [
+    {
+      "footer_img1": "https://scontent.cdninstagram.com/v/t51.2885-15/29716155_646461779018392_1632824515853549568_n.jpg?_nc_cat=109&_nc_sid=8ae9d6&_nc_ohc=QOoYeM4uvkMAX8P4zNM&_nc_ht=scontent.cdninstagram.com&oh=0727aa93b1fdde01333bb9871df6bd34&oe=5F5E2497",
+      "footer_img2": "https://scontent.cdninstagram.com/v/t51.2885-15/23347822_375297079580177_9172549431143170048_n.jpg?_nc_cat=103&_nc_sid=8ae9d6&_nc_ohc=r8Tl1uPeS4IAX_Oj1Ks&_nc_ht=scontent.cdninstagram.com&oh=fa31a1df192d57bc628e427a937ddc5d&oe=5F603344",
+      "footer_img3": "https://scontent.cdninstagram.com/v/t51.2885-15/23279544_158758678193388_226828656104701952_n.jpg?_nc_cat=109&_nc_sid=8ae9d6&_nc_ohc=8onCS27Lfm0AX9K8hE7&_nc_ht=scontent.cdninstagram.com&oh=b1a020d6c5a322bc517db13d39feb327&oe=5F5E8502",
+      "footer_img4": "https://scontent.cdninstagram.com/v/t51.2885-15/23347549_2031947513708234_7051271749438013440_n.jpg?_nc_cat=106&_nc_sid=8ae9d6&_nc_ohc=1fQ2rfIGqt4AX_75jzw&_nc_ht=scontent.cdninstagram.com&oh=13e50ad8d135576e607931622d6a801c&oe=5F61A4D0",
+      "footer_img5": "https://scontent.cdninstagram.com/v/t51.2885-15/23347633_138127380171820_8882548789731131392_n.jpg?_nc_cat=111&_nc_sid=8ae9d6&_nc_ohc=MFcxiNjgONYAX-uX_Y8&_nc_ht=scontent.cdninstagram.com&oh=5d2d1c863eae5cf5e0a314c99073aca1&oe=5F60966F",
+      "footer_img6": "https://scontent.cdninstagram.com/v/t51.2885-15/23279737_533587690319682_4370340926912987136_n.jpg?_nc_cat=101&_nc_sid=8ae9d6&_nc_ohc=gn_nQirn7T8AX_aF616&_nc_ht=scontent.cdninstagram.com&oh=f6837794067fa84ffbf541a4aed6f482&oe=5F5DD37A"
+    }
   ]
 }
