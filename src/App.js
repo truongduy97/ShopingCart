@@ -28,7 +28,8 @@ const initState = {
       id: 4,
       name: "San pham 4",
       price: 9,
-      size: ["s", "m", "xl"],
+      size: "S",
+      quantity: 5,
       img:
         "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/115844444-311743083208439-6108934669943805257-n.jpg?v=1595330674000"
     },
@@ -36,7 +37,8 @@ const initState = {
       id: 5,
       name: "San pham 5",
       price: 7,
-      size: ["s", "l", "xl"],
+      size: "L",
+      quantity: 2,
       img:
         "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/107394521-891501798012798-6859051419782666584-n.jpg?v=1594299802000"
     }

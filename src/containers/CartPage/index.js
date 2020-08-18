@@ -1,6 +1,13 @@
 import React from "react";
-import { Grid, Container, Box, Typography, Button } from "@material-ui/core";
-// import ProductCart from "../ProductCart";
+import {
+  Grid,
+  Container,
+  Box,
+  Typography,
+  Button,
+  TextField
+} from "@material-ui/core";
+import ProductCart from "../ProductCart";
 import { connect } from "react-redux";
 function CartPage(props) {
   return (
@@ -9,33 +16,40 @@ function CartPage(props) {
         <Grid container spacing={3}>
           <Grid item md={9}>
             <Box p={2}>
-              {/* <ProductCart></ProductCart> */}
-              {/* {props.cart.map((product) => {
-              return (
-                <Box boxShadow={2} mb={2}>
-                  <Grid container>
-                    <Grid item md={4}>
-                      <img style={{ maxWidth: "100%" }} src={product.src} />
+              {props.cart.map(product => {
+                return (
+                  <ProductCart
+                    key={product.id}
+                    products={product}
+                  ></ProductCart>
+                );
+              })}
+
+              {/* {props.cart.map(product => {
+                return (
+                  <Box boxShadow={2} mb={2}>
+                    <Grid container>
+                      <Grid item md={4}>
+                        <img style={{ maxWidth: "100%" }} src={product.img} />
+                      </Grid>
+                      <Grid item md={8}>
+                        <Typography variant="h3">{product.name}</Typography>
+                        <Typography variant="body2">
+                          Mã sản phẩm: {product.id}
+                        </Typography>
+
+                        <Typography variant="body2">
+                          {product.price}$
+                        </Typography>
+                        <Typography variant="body1">
+                          Size: {product.size}
+                        </Typography>
+                        <TextField value={product.quantity} type="number"></TextField>
+                      </Grid>
                     </Grid>
-                    <Grid item md={8}>
-                      <Typography variant="h3">{product.title}</Typography>
-                      <Typography variant="body2">
-                        Mã sản phẩm: {product.id}
-                      </Typography>
-                      
-                      <Typography variant="body2">
-                        {product.price}
-                        {product.currency}
-                      </Typography>
-                      <Typography variant="body1">
-                        Size: {product.size}
-                      </Typography>
-                      <TextField value={product.quantity}></TextField>
-                    </Grid>
-                  </Grid>
-                </Box>
-              );
-            })} */}
+                  </Box>
+                );
+              })} */}
             </Box>
           </Grid>
           <Grid item md={3}>
