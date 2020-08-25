@@ -17,7 +17,8 @@ import {
 import axios from "axios";
 import { withStyles } from "@material-ui/core";
 import { ImageContainer } from "../../components";
-
+import { connect } from "react-redux";
+import { addToCartAction } from "../../actions";
 const style = theme => ({
   img_container: {
     boxShadow: theme.shadows[3]
@@ -89,7 +90,12 @@ class DetailPage extends Component {
     //   });
     // }
   };
-
+  handleClickAddToCart = () => {
+    const cart_product = {...this.state.product};
+    cart_product.quantity = this.state.quantity;
+    cart_product.size = this.state.size;
+    this.props.addToCart(cart_product);
+  };
   render() {
     const { classes } = this.props;
     const { product } = this.state;
@@ -158,7 +164,11 @@ class DetailPage extends Component {
                 </Button>
               </Box>
               <Box mt={3}>
-                <Button variant="contained" color="secondary">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={this.handleClickAddToCart}
+                >
                   Add to cart
                 </Button>
               </Box>
@@ -171,5 +181,12 @@ class DetailPage extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => {
+      dispatch(addToCartAction(product));
+    },
+  };
+};
+export default connect(null, mapDispatchToProps)(withStyles(style)(DetailPage));
 
-export default withStyles(style)(DetailPage);

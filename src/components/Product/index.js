@@ -15,23 +15,33 @@ const useStyles = makeStyles(theme => ({
     margin: "auto"
   }
 }));
-function Product(props) {
+function Product({ id, price, name, img, addToCart }) {
   const classes = useStyles();
+  const handleClickAddToCart = () => {
+    addToCart({
+      id,
+      price,
+      name,
+      img,
+      size: "L",
+      quantity: 1
+    });
+  };
   return (
     // <Grid item md={3} xs={6}>
     <Card>
       <CardActionArea>
         <Box>
-          <img src={props.img} style={{ maxWidth: "100%" }}></img>
+          <img src={img} style={{ maxWidth: "100%" }}></img>
         </Box>
       </CardActionArea>
       <Box>
         <Typography align="center" variant="h6">
           {/* {props.name} */}
-          <Link to={"/product/" + props.id}>{props.name}</Link>
+          <Link to={"/product/" + id}>{name}</Link>
         </Typography>
         <Typography align="center" variant="h6">
-          {props.price}$
+          {price}$
         </Typography>
         <CardActions>
           <Button
@@ -39,6 +49,7 @@ function Product(props) {
             size="small"
             color="primary"
             variant="contained"
+            onClick={handleClickAddToCart}
           >
             Add
           </Button>

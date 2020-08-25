@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 // import { Switch } from "@material-ui/core";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./constants";
 const theme = createMuiTheme({
   palette: {
     theme_color_one: {
@@ -24,27 +25,60 @@ const theme = createMuiTheme({
 
 const initState = {
   cart: [
-    {
-      id: 4,
-      name: "San pham 4",
-      price: 9,
-      size: "S",
-      quantity: 5,
-      img:
-        "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/115844444-311743083208439-6108934669943805257-n.jpg?v=1595330674000"
-    },
-    {
-      id: 5,
-      name: "San pham 5",
-      price: 7,
-      size: "L",
-      quantity: 2,
-      img:
-        "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/107394521-891501798012798-6859051419782666584-n.jpg?v=1594299802000"
-    }
+    // {
+    //   id: 4,
+    //   name: "San pham 4",
+    //   price: 9,
+    //   size: "S",
+    //   quantity: 5,
+    //   img:
+    //     "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/115844444-311743083208439-6108934669943805257-n.jpg?v=1595330674000"
+    // },
+    // {
+    //   id: 5,
+    //   name: "San pham 5",
+    //   price: 7,
+    //   size: "L",
+    //   quantity: 2,
+    //   img:
+    //     "https://bizweb.dktcdn.net/thumb/large/100/331/067/products/107394521-891501798012798-6859051419782666584-n.jpg?v=1594299802000"
+    // }
   ]
 };
 const reducer = function(state = initState, action) {
+  if (action.type === ADD_TO_CART) {
+    const product_in_cart_id = state.cart.findIndex(pic => {
+      return pic.id === action.payload.id;
+    });
+    if (product_in_cart_id >= 0) {
+      // state.cart[product_in_cart_id].quantity++;
+      // return state;
+      const new_cart = [...state.cart];
+
+      // new_cart[product_in_cart_id].quantity++;
+      new_cart[product_in_cart_id].quantity =
+        new_cart[product_in_cart_id].quantity + action.payload.quantity;
+      return {
+        ...state,
+        cart: new_cart
+      };
+    } else {
+      return {
+        ...state,
+        cart: [...state.cart, action.payload]
+      };
+    }
+
+    //return new product in cart
+  } else if (action.type === REMOVE_FROM_CART) {
+    const new_cart = [...state.cart].filter(product => {
+      return product.id !== action.payload;
+    });
+    return {
+      ...state,
+      cart: new_cart
+    };
+  }
   return state;
 };
 

@@ -10,6 +10,8 @@ import {
 import { Product } from "../../components";
 import Pagination from "@material-ui/lab/Pagination";
 import axios from "axios";
+import { connect } from "react-redux";
+import { addToCartAction } from "../../actions";
 const classStyles = theme => ({
   root: {
     backgroundColor: "#ffee33"
@@ -76,6 +78,7 @@ class ProductsPage extends Component {
                           price={product.price}
                           img={product.img}
                           id={product.id}
+                          addToCart={this.props.addToCart}
                         ></Product>
                       </Grid>
                     );
@@ -102,5 +105,17 @@ class ProductsPage extends Component {
     );
   }
 }
+const mapStateToProps = null;
+//store.dispatch(action)
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: product => {
+      dispatch(addToCartAction(product));
+    }
+  };
+};
 
-export default withStyles(classStyles)(ProductsPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(classStyles)(ProductsPage));

@@ -1,8 +1,9 @@
 import React from "react";
-import { Typography, TextField, Grid, Box } from "@material-ui/core";
+import { Typography, TextField, Grid, Box, Button } from "@material-ui/core";
 
 const ProductCart = props => {
-  const { img, name, price, quantity, size } = props.products;
+  const { img, name, price, quantity, size, id } = props.products;
+
   return (
     <div>
       <Box boxShadow={2} mb={3}>
@@ -16,6 +17,15 @@ const ProductCart = props => {
               <Typography variant="body1">Size: {size}</Typography>
               <Typography variant="body2">Price: {price}$</Typography>
               <TextField type="number" value={quantity}></TextField>
+              <Box my={3}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => props.removeFromCart(id)}
+                >
+                  Remove
+                </Button>
+              </Box>
             </Box>
           </Grid>
         </Grid>

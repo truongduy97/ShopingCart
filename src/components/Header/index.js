@@ -2,7 +2,7 @@ import React from "react";
 import { ShoppingCart } from "@material-ui/icons/";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link, NavLink } from "react-router-dom";
-
+import { connect } from "react-redux";
 import {
   AppBar,
   Toolbar,
@@ -40,7 +40,7 @@ function Header(props) {
               <NavLink to="/detail">Cart</NavLink>
             </Button>
             <IconButton edge="start" color="inherit" aria-label="menu">
-              <Badge badgeContent={4} color="Secondary">
+              <Badge badgeContent={props.total} color="Secondary">
                 <NavLink to="/cart">
                   <ShoppingCart />
                 </NavLink>
@@ -52,5 +52,13 @@ function Header(props) {
     </div>
   );
 }
+const mapStateToProps = state => {
+  const total = state.cart.reduce((sum, pic) => {
+    return (sum = sum + pic.quantity);
+  }, 0);
+  return {
+    total
+  };
+};
 
-export default Header;
+export default connect(mapStateToProps)(Header);

@@ -1,15 +1,13 @@
 import React from "react";
-import {
-  Grid,
-  Container,
-  Box,
-  Typography,
-  Button,
-  TextField
-} from "@material-ui/core";
+import { Grid, Container, Box, Typography, Button } from "@material-ui/core";
 import ProductCart from "../ProductCart";
 import { connect } from "react-redux";
+import { removeFromCartAction } from "../../actions";
 function CartPage(props) {
+  const total = props.cart.reduce((total, pic) => {
+    return (total = total + pic.quantity * pic.price);
+  }, 0);
+
   return (
     <Box py={10}>
       <Container>
@@ -21,42 +19,22 @@ function CartPage(props) {
                   <ProductCart
                     key={product.id}
                     products={product}
+                    removeFromCart={props.removeFromCart}
                   ></ProductCart>
                 );
               })}
-
-              {/* {props.cart.map(product => {
-                return (
-                  <Box boxShadow={2} mb={2}>
-                    <Grid container>
-                      <Grid item md={4}>
-                        <img style={{ maxWidth: "100%" }} src={product.img} />
-                      </Grid>
-                      <Grid item md={8}>
-                        <Typography variant="h3">{product.name}</Typography>
-                        <Typography variant="body2">
-                          Mã sản phẩm: {product.id}
-                        </Typography>
-
-                        <Typography variant="body2">
-                          {product.price}$
-                        </Typography>
-                        <Typography variant="body1">
-                          Size: {product.size}
-                        </Typography>
-                        <TextField value={product.quantity} type="number"></TextField>
-                      </Grid>
-                    </Grid>
-                  </Box>
-                );
-              })} */}
             </Box>
           </Grid>
           <Grid item md={3}>
             <Box boxShadow="0 0 25px rgba(0,0,0,0.16)" p={3}>
-              <Typography variant="h4">Tổng tiền: 120$</Typography>
+              <Typography variant="h4">Tổng tiền: {total}$</Typography>
               <Box mt={3}>
-                <Button variant="contained" color="secondary" fullWidth="true">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  fullWidth="true"
+                  // onClick={handleOpen}
+                >
                   Thanh Toán
                 </Button>
               </Box>
@@ -72,4 +50,12 @@ const mapStateToProps = state => {
     cart: state.cart
   };
 };
-export default connect(mapStateToProps)(CartPage);
+const mapDispatchToProps = dispatch => {
+  return {
+    removeFromCart: id => {
+      dispatch(removeFromCartAction(id));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
